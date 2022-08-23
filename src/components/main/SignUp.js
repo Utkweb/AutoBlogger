@@ -186,7 +186,6 @@ const SignUp = () => {
                           type="checkbox"
                           value=""
                           id="form2Example33"
-                          checked
                         />
                         <label
                           className="form-check-label"
