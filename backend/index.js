@@ -1,10 +1,12 @@
 const express = require('express');
 const app=express();
-const port = 5000;
+// const port = 5000;
 const userRouter =require('./router/userRouter');
 const videoRouter =require('./router/videoRouter');
 const utilRouter =require('./router/util');
 const cors = require('cors');
+const api_config = require('./config');
+const port = api_config.port;
 
 app.use(express.json());
 

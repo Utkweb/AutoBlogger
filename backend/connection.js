@@ -1,7 +1,7 @@
 // to connect with database
 const mongoose = require('mongoose');
-
-const url = "mongodb+srv://UtkarshS:7236989916@cluster0.o9fwt.mongodb.net/AutoBlogger?retryWrites=true&w=majority";
+const api_config = require('./config');
+const url = api_config.dbUrl;
 
 mongoose.connect(url)
 .then(() => {

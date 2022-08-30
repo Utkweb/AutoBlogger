@@ -154,4 +154,9 @@ const Login = () => {
             </div>
           </div>
         </div>
- 
+      </section>
+    </div>
+  );
+};
+
+export default Login;
