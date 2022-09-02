@@ -1,0 +1,8 @@
+.blogheader{
+    background:linear-gradient(rgba(0, 0, 0, 0.398),rgba(128, 128, 128, 0.422));
+    height: 30vh;
+}
+.heading{
+    padding: 5%;
+    letter-spacing: 5px;
+}

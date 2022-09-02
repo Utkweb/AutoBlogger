@@ -1,12 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import Header from '../user/Header';
+import Header from '../main/Header';
 
 const User = () => {
   return (
     <div>
-      <Header></Header>
-      <Outlet></Outlet>
+      <Header/>
+      <Outlet/>
     </div>
   )
 }

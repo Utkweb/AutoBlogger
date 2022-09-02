@@ -73,6 +73,8 @@ const UserManager = () => {
     } else {
       return userArray.map(({ _id, firstname, lastname, email, password }) => (
         <tr key={_id}>
+          
+          <td>1</td>
           <td>{firstname}</td>
           <td>{lastname}</td>
           <td>{email}</td>
@@ -90,7 +92,7 @@ const UserManager = () => {
           </td>
           <td>
             <Button className="btn btn-danger" onClick={(e) => deleteUser(_id)}>
-              <i class="fas fa-trash"></i>{" "}
+              <i class="fa fa-trash" aria-hidden="true"></i>
             </Button>
           </td>
         </tr>
@@ -102,9 +104,10 @@ const UserManager = () => {
       <h1 className="text-center">User Manager</h1>
       <div className="row">
         <div className="col-md">
-          <table className="table table-dark">
-            <thead>
+          <table className="table table-warning table-striped">
+            <thead className="table-dark">
               <tr>
+                <th>S No.</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
@@ -128,6 +131,7 @@ const UserManager = () => {
           " "
         )}
       </div>
+     
     </div>
   );
 };

@@ -14,6 +14,8 @@ import Blog from "./components/blog";
 import { useState } from "react";
 import { UserProvider } from "./components/main/UseContext";
 import AddVideo from "./components/user/AddVideo";
+import VideoManager from "./components/user/VideoManager";
+import UserManager from "./components/main/UserManager";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -26,6 +28,7 @@ function App() {
           <Route element={<Main />} path="main">
             <Route element={<Login />} path="login" />
             <Route element={<SignUp />} path="signup" />
+            <Route element={<UserManager />} path="usermanager" />
           </Route>
 
           <Route element={<Admin />} path="admin">
@@ -37,6 +40,7 @@ function App() {
           <Route element={<User />} path="user">
             <Route element={<Userprofile />} path="userprofile" />
             <Route element={<AddVideo />} path="addvideo" />
+            <Route element={<VideoManager />} path="videomanager" />
           </Route>
 
           <Route element={<Blog />} path="blog"></Route>

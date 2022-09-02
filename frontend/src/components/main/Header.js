@@ -45,7 +45,7 @@ const Header = () => {
       {/* <!-- Left links --> */}
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <NavLink className="nav-link" to="#">Dashboard</NavLink>
+          <NavLink className="nav-link" to="/main/usermanager">User Manager</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="#">Team</NavLink>
@@ -62,14 +62,14 @@ const Header = () => {
     <div className="d-flex align-items-center">
       {/* <!-- Icon --> */}
       <div className="d-flex align-items-center">
-        <button type="button" className="btn btn-link px-3 me-2">
+        <NavLink type="button" className="btn btn-link px-3 me-2" to="/main/login">
           {/* <NavLink>Login</NavLink> */}
           Login
           
-        </button>
-        <button type="button" className="btn btn-primary me-3">
+        </NavLink>
+        <NavLink type="button" className="btn btn-primary me-3" to="/main/signup">
           Sign up for free
-        </button>
+        </NavLink>
       </div>
 
     
