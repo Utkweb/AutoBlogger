@@ -23,6 +23,8 @@ app.get('/home',(req,res)=>{
     res.send('Namaste Duniyaaa!');
 })
 
+app.use(express.static('./static/uploads'));
+
 
 app.listen(port, ()=>{
     

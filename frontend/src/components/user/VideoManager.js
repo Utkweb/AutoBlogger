@@ -2,9 +2,12 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
+import app_config from "../../config";
 import "./VideoManager.css";
 
 const VideoManager = () => {
+
+  const url = app_config.backend_url;
   const [userArray, setUserArray] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +17,8 @@ const VideoManager = () => {
   const getDataFromBackend = async () => {
     setLoading(true);
 
-    const response = await fetch("http://localhost:5000/video/getall");
+    const response = await fetch(url+"/video/getall");
+    console.log(response.status);
     const data = await response.json();
 
     console.log(data);
@@ -25,7 +29,7 @@ const VideoManager = () => {
   const deleteUser = async (id) => {
     console.log(id);
 
-    const response = await fetch("http://localhost:5000/video/delete/" + id, {
+    const response = await fetch(url+"/video/delete/" + id, {
       method: "Delete",
     });
     if (response.status === 200) {
@@ -63,15 +67,17 @@ const VideoManager = () => {
         </div>
       );
     } else {
-      return userArray.map(({ _id, title, description,file }) => (
+      return userArray.map(({ _id, title, description, file, thumbnail }) => (
         <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="..."/>
-  <div class="card-body">
-    <h5 class="card-title">{title}</h5>
-    <p class="card-text">{description}</p>
-    <NavLink to="" class="btn btn-primary">View</NavLink>
-  </div>
-</div>
+          <img src={url+'/'+thumbnail } class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{title}</h5>
+            <p class="card-text">{description}</p>
+            <NavLink to="" class="btn btn-primary">
+              View
+            </NavLink>
+          </div>
+        </div>
         //     {/* <Button
         //       className="btn btn-primary"
         //       onClick={(e) =>
@@ -106,12 +112,10 @@ const VideoManager = () => {
       </section>
       <section>
         <div className="container">
-          <img className="img-fluid" src={File} alt="" />
+          {/* <img className="img-fluid" src={File} alt="" /> */}
 
           <div className="row mt-3 mb-5">
-            <div className="col-md-3">
-              {displayUser()}
-            </div>
+            <div className="col-md-3">{displayUser()}</div>
           </div>
         </div>
       </section>
