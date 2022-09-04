@@ -44,9 +44,9 @@ const AddBlog = () => {
                 <div className="box">
                   <div class="form-outline mb-4">
                     <input
-                      type="email"
-                      id="email"
-                      value={values.email}
+                      type="text"
+                      id="title"
+                      value={values.title}
                       onChange={handleChange}
                       class="form-control"
                     />
@@ -55,7 +55,7 @@ const AddBlog = () => {
                       for="form2Example1"
                       style={{ marginLeft: "0px" }}
                     >
-                      Email address
+                      Title
                     </label>
                   </div>
                 </div>
@@ -63,14 +63,50 @@ const AddBlog = () => {
                 <div className="box">
                   <div class="form-outline mb-4">
                     <input
-                      type="password"
-                      id="password"
-                      value={values.password}
+                      type="textbox"
+                      id="description"
+                      value={values.description}
                       onChange={handleChange}
                       className="form-control"
                     />
                     <label class="form-label" for="form2Example2">
-                      Password
+                      Description
+                    </label>
+                  </div>
+                </div>
+                <div className="box">
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="category"
+                      value={values.category}
+                      onChange={handleChange}
+                      class="form-control"
+                    />
+                    <label
+                      className="form-label"
+                      for="form2Example1"
+                      style={{ marginLeft: "0px" }}
+                    >
+                      Category
+                    </label>
+                  </div>
+                </div>
+                <div className="box">
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="data"
+                      value={values.data}
+                      onChange={handleChange}
+                      class="form-control"
+                    />
+                    <label
+                      className="form-label"
+                      for="form2Example1"
+                      style={{ marginLeft: "0px" }}
+                    >
+                      Data
                     </label>
                   </div>
                 </div>
@@ -79,32 +115,8 @@ const AddBlog = () => {
 
                 {/* <!-- Submit button --> */}
                 <Button type="submit" className="sign">
-                  Sign in
+                  SUBMIT
                 </Button>
-              </div>
-              {/* <!-- Register buttons --> */}
-              <div class="text-center all">
-                <div className="txt">
-                  <p>
-                    Not a member? <a href="/signUp">Register here</a>
-                  </p>
-                </div>
-                <p>or sign up with:</p>
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                  <i class="fab fa-facebook-f"></i>
-                </button>
-
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                  <i class="fab fa-google"></i>
-                </button>
-
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                  <i class="fab fa-twitter"></i>
-                </button>
-
-                <button type="button" class="btn btn-primary btn-floating mx-1">
-                  <i class="fab fa-github"></i>
-                </button>
               </div>
             </form>
           )}
