@@ -16,6 +16,7 @@ import { UserProvider } from "./components/main/UseContext";
 import AddVideo from "./components/user/AddVideo";
 import VideoManager from "./components/user/VideoManager";
 import UserManager from "./components/main/UserManager";
+import AddBlog from "./components/blog/AddBlog";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -43,7 +44,9 @@ function App() {
             <Route element={<VideoManager />} path="videomanager" />
           </Route>
 
-          <Route element={<Blog />} path="blog"></Route>
+          <Route element={<Blog />} path="blog">
+            <Route element={<AddBlog/>} path="addblog"/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </UserProvider>

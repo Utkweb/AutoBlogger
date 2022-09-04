@@ -1,8 +1,15 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
+import Header from '../main/Header';
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <div>
+      <Header>
+
+      </Header>
+      <Outlet></Outlet>
+    </div>
   )
 }
 
