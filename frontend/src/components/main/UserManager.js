@@ -104,7 +104,7 @@ const UserManager = () => {
       <h1 className="text-center">User Manager</h1>
       <div className="row">
         <div className="col-md">
-          <table className="table table-warning table-striped">
+          <table className="table table-secondary table-striped">
             <thead className="table-dark">
               <tr>
                 <th>S No.</th>
