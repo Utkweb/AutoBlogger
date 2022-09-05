@@ -6,7 +6,6 @@ import app_config from "../../config";
 import "./VideoManager.css";
 
 const VideoManager = () => {
-
   const url = app_config.backend_url;
   const [userArray, setUserArray] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -17,7 +16,7 @@ const VideoManager = () => {
   const getDataFromBackend = async () => {
     setLoading(true);
 
-    const response = await fetch(url+"/video/getall");
+    const response = await fetch(url + "/video/getall");
     console.log(response.status);
     const data = await response.json();
 
@@ -28,13 +27,12 @@ const VideoManager = () => {
 
   useEffect(() => {
     getDataFromBackend();
-  }, [])
-  
+  }, []);
 
   const deleteUser = async (id) => {
     console.log(id);
 
-    const response = await fetch(url+"/video/delete/" + id, {
+    const response = await fetch(url + "/video/delete/" + id, {
       method: "Delete",
     });
     if (response.status === 200) {
@@ -74,18 +72,31 @@ const VideoManager = () => {
     } else {
       return userArray.map(({ _id, title, description, file, thumbnail }) => (
         <div className="col-md-4 mt-4">
-
-        <div class="card">
-          <img src={url+'/'+thumbnail } class="card-img-top" alt="" />
-          <div class="card-body">
-            <h5 class="card-title">{title}</h5>
-            <p class="card-text">{description}</p>
-            <NavLink to="" class="btn btn-primary">
-              View
-            </NavLink>
+          <div className="card">
+            <div
+              className="bg-image hover-overlay ripple"
+              data-mdb-ripple-color="light"
+            >
+              <img
+                src={url + "/" + file}
+                className="img-fluid"
+              />
+              <a href="#!">
+                <div
+                  className="mask"
+                  style={{backgroundColor: "rgba(251, 251, 251, 0.15)"}}></div>
+              </a>
+            </div>
+            {/* <img src= class="card-img-top" alt="" /> */}
+            <div class="card-body">
+              <h5 class="card-title">{title}</h5>
+              <p class="card-text">{description}</p>
+              <NavLink to="" class="btn btn-primary">
+                View
+              </NavLink>
+            </div>
           </div>
         </div>
-          </div>
         //     {/* <Button
         //       className="btn btn-primary"
         //       onClick={(e) =>
@@ -109,7 +120,7 @@ const VideoManager = () => {
     <div>
       <section>
         <div className="text-center blogheader">
-          <h1 className="heading">My Blog</h1>
+          <h1 className="heading">My Video</h1>
           {/* <p className=''>cmab mhjc gh kigiesiuvbu</p> */}
         </div>
       </section>
@@ -122,9 +133,7 @@ const VideoManager = () => {
         <div className="container">
           {/* <img className="img-fluid" src={File} alt="" /> */}
 
-          <div className="row mt-3 mb-5">
-            {displayUser()}
-          </div>
+          <div className="row mt-3 mb-5">{displayUser()}</div>
         </div>
       </section>
     </div>
