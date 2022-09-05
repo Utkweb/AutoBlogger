@@ -31,7 +31,7 @@ const AddVideo = () => {
 
   const uploadImage = (e) => {
     const file = e.target.files[0];
-    setSelFile(file.name);
+    setSelImage(file.name);
     const fd = new FormData();
     fd.append("myfile", file);
     fetch("http://localhost:5000/util/uploadfile", {
