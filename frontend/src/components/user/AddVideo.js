@@ -107,10 +107,20 @@ const AddVideo = () => {
             </div>
             <div class="form-outline mb-4">
               <Button variant="contained" component="label">
-                Upload
+                Upload Video
                 <input
                   hidden
                   accept="video/*"
+                  multiple
+                  type="file"
+                  onChange={uploadFile}
+                />
+              </Button>
+              <Button variant="contained" component="label">
+                Upload Thumbnail
+                <input
+                  hidden
+                  accept="image/*"
                   multiple
                   type="file"
                   onChange={uploadImage}
