@@ -73,6 +73,8 @@ const BlogManager = () => {
     } else {
       return userArray.map(({ _id, title,description,category,data }) => (
         <tr key={_id}>
+
+          <td>{1}</td>
           <td>{title}</td>
           <td>{description}</td>
           <td>{category}</td>

@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import app_config from "../../config";
@@ -25,6 +25,11 @@ const VideoManager = () => {
     setUserArray(data);
     setLoading(false);
   };
+
+  useEffect(() => {
+    getDataFromBackend();
+  }, [])
+  
 
   const deleteUser = async (id) => {
     console.log(id);
@@ -68,8 +73,10 @@ const VideoManager = () => {
       );
     } else {
       return userArray.map(({ _id, title, description, file, thumbnail }) => (
-        <div class="card" style="width: 18rem;">
-          <img src={url+'/'+thumbnail } class="card-img-top" alt="..." />
+        <div className="col-md-4 mt-4">
+
+        <div class="card">
+          <img src={url+'/'+thumbnail } class="card-img-top" alt="" />
           <div class="card-body">
             <h5 class="card-title">{title}</h5>
             <p class="card-text">{description}</p>
@@ -78,6 +85,7 @@ const VideoManager = () => {
             </NavLink>
           </div>
         </div>
+          </div>
         //     {/* <Button
         //       className="btn btn-primary"
         //       onClick={(e) =>
@@ -115,7 +123,7 @@ const VideoManager = () => {
           {/* <img className="img-fluid" src={File} alt="" /> */}
 
           <div className="row mt-3 mb-5">
-            <div className="col-md-3">{displayUser()}</div>
+            {displayUser()}
           </div>
         </div>
       </section>

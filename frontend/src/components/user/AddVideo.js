@@ -3,11 +3,12 @@ import { Formik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import VideoManager from "./VideoManager";
 
 const AddVideo = () => {
   const navigate = useNavigate();
   const [selFile, setSelFile] = useState("");
-  const [selImage, setSelImage] = useState("")
+  const [selImage, setSelImage] = useState("");
 
   const userForm = {
     title: "",
@@ -107,7 +108,13 @@ const AddVideo = () => {
             <div class="form-outline mb-4">
               <Button variant="contained" component="label">
                 Upload
-                <input hidden accept="image/*" multiple type="file" onChange={uploadImage} />
+                <input
+                  hidden
+                  accept="video/*"
+                  multiple
+                  type="file"
+                  onChange={uploadImage}
+                />
               </Button>
             </div>
 
@@ -132,6 +139,7 @@ const AddVideo = () => {
           </form>
         )}
       </Formik>
+      <VideoManager />
     </div>
   );
 };
