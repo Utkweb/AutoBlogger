@@ -1,4 +1,5 @@
 import { Button, IconButton } from "@mui/material";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { Formik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -94,13 +95,16 @@ const AddVideo = () => {
 
             {/* <!-- Message input --> */}
             <div class="form-outline mb-4">
-              <textarea
+              <TextareaAutosize
+                aria-label="empty textarea"
                 class="form-control"
                 id="description"
-                rows="4"
+                minRows={5}
                 onChange={handleChange}
                 value={values.description}
-              ></textarea>
+                style={{ width: 200 }}
+              />
+
               <label class="form-label" for="form4Example3">
                 Description
               </label>

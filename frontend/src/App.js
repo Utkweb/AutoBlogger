@@ -18,6 +18,7 @@ import VideoManager from "./components/user/VideoManager";
 import UserManager from "./components/main/UserManager";
 import AddBlog from "./components/blog/AddBlog";
 import BlogManager from "./components/blog/BlogManager";
+import NotFound from "./components/main/NotFound";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -27,10 +28,11 @@ function App() {
     <UserProvider user={currentUser}>
       <BrowserRouter>
         <Routes>
-          <Route element={<Main />} path="main">
+          <Route element={<Main />} path="/">
             <Route element={<Login />} path="login" />
-            <Route element={<SignUp />} path="signup" />
+            <Route element={<SignUp />} path="/" />
             <Route element={<UserManager />} path="usermanager" />
+            <Route element={<NotFound/>} path="error"/>
           </Route>
 
           <Route element={<Admin />} path="admin">
