@@ -114,8 +114,8 @@ const AddBlog = () => {
                 {/* <!-- 2 column grid layout for inline styling --> */}
 
                 {/* <!-- Submit button --> */}
-                <Button type="submit" className="sign w-100">
-                  <span>&#8250;&#8250;&#8250; </span> Publish
+                <Button variant="contained" type="submit" className="sign w-100">
+                   Publish
                 </Button>
               </div>
             </form>

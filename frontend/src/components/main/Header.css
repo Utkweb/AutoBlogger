@@ -46,3 +46,7 @@
   
   justify-items: right;
 }
+.logo img{
+    border-radius: 48%;
+    
+}

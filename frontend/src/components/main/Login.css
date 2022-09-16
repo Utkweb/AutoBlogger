@@ -1,3 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bodi{
+  background-color: #1E56A0;
+  height: 100vh;
+}
+.mainF .boxes div{
+  color: white;
+  background: white;
+  border-radius: 10px;
+
+}
+
 .divider:after,
 .divider:before {
   content: "";

@@ -7,14 +7,13 @@ import "./Login.css";
 import { UserContext } from "./UseContext";
 
 const Login = () => {
-
- const url =  app_config.backend_url;
+  const url = app_config.backend_url;
   // const navigate = useNavigate();
   const { setLoggedIn, setCurrentUser } = useContext(UserContext);
   const userSubmit = async (formdata) => {
     console.log(formdata);
 
-    const res = await fetch(url+"/user/authenticate", {
+    const res = await fetch(url + "/user/authenticate", {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: {
@@ -29,7 +28,7 @@ const Login = () => {
         title: "Wellcome!!👌",
         text: "Enter a new World!!",
       });
-      
+
       const data = await res.json();
       sessionStorage.setItem("user", JSON.stringify(data));
     } else {
@@ -43,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="bodi">
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
@@ -61,58 +60,67 @@ const Login = () => {
               >
                 {({ values, handleChange, handleSubmit }) => (
                   <form onSubmit={handleSubmit}>
-                    {/* <!-- Email input --> */}
-                    <div className="form-outline mb-4">
-                      <input
-                        type="email"
-                        id="email"
-                        className="form-control form-control-lg"
-                        value={values.email}
-                        onChange={handleChange}
-                      />
-                      <label className="form-label" for="form1Example13">
-                        Email address
-                      </label>
-                    </div>
-
-                    {/* <!-- Password input --> */}
-                    <div className="form-outline mb-4">
-                      <input
-                        type="password"
-                        id="password"
-                        className="form-control form-control-lg"
-                        value={values.password}
-                        onChange={handleChange}
-                      />
-                      <label className="form-label" for="form1Example23">
-                        Password
-                      </label>
-                    </div>
-
-                    <div className="d-flex justify-content-around align-items-center mb-4">
-                      {/* <!-- Checkbox --> */}
-                      <div className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="form1Example3"
-                        />
-                        <label className="form-check-label" for="form1Example3">
-                          {" "}
-                          Remember me{" "}
-                        </label>
+                    <div className="mainF">
+                      {/* <!-- Email input --> */}
+                      <div className=" boxes">
+                        <div className="form-outline mb-4">
+                          <input
+                            type="email"
+                            id="email"
+                            className="form-control form-control-lg"
+                            value={values.email}
+                            onChange={handleChange}
+                          />
+                          <label className="form-label" for="form1Example13">
+                            Email address
+                          </label>
+                        </div>
                       </div>
-                      <a href="#!">Forgot password?</a>
-                    </div>
 
-                    {/* <!-- Submit button --> */}
-                    <button
-                      type="submit"
-                      className="btn btn-primary btn-lg btn-block"
-                    >
-                      Sign in
-                    </button>
+                      {/* <!-- Password input --> */}
+                      <div className=" boxes">
+                        <div className="form-outline mb-4">
+                          <input
+                            type="password"
+                            id="password"
+                            className="form-control form-control-lg"
+                            value={values.password}
+                            onChange={handleChange}
+                          />
+                          <label className="form-label" for="form1Example23">
+                            Password
+                          </label>
+                        </div>
+                      </div>
+
+                      <div className="d-flex justify-content-around align-items-center mb-4">
+                        {/* <!-- Checkbox --> */}
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="form1Example3"
+                          />
+                          <label
+                            className="form-check-label"
+                            for="form1Example3"
+                          >
+                            {" "}
+                            Remember me{" "}
+                          </label>
+                        </div>
+                        <a href="#!">Forgot password?</a>
+                      </div>
+
+                      {/* <!-- Submit button --> */}
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-lg btn-block"
+                      >
+                        Sign in
+                      </button>
+                    </div>
 
                     <div className="divider d-flex align-items-center my-4">
                       <p className="text-center fw-bold mx-3 mb-0 text-muted">

@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import { Button } from "@mui/material";
-// import UpdateUser from "./UpdateUser";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+import app_config from "../../config";
+
 
 const BlogManager = () => {
+  const url = app_config.backend_url;
   const [userArray, setUserArray] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -13,7 +16,8 @@ const BlogManager = () => {
   const getDataFromBackend = async () => {
     setLoading(true);
 
-    const response = await fetch("http://localhost:5000/blog/getall");
+    const response = await fetch(url + "/blogs/getall");
+    console.log(response.status);
     const data = await response.json();
 
     console.log(data);
@@ -21,10 +25,14 @@ const BlogManager = () => {
     setLoading(false);
   };
 
+  useEffect(() => {
+    getDataFromBackend();
+  }, []);
+
   const deleteUser = async (id) => {
     console.log(id);
 
-    const response = await fetch("http://localhost:5000/blog/delete/" + id, {
+    const response = await fetch(url + "/blogs/delete/" + id, {
       method: "Delete",
     });
     if (response.status === 200) {
@@ -38,15 +46,6 @@ const BlogManager = () => {
       getDataFromBackend();
     }
   };
-
-  const updateUser = (user) => {
-    console.log(user);
-    setUpdateFormData(user);
-    setShowUpdateForm(true);
-  };
-  useEffect(() => {
-    getDataFromBackend();
-  }, []);
 
   const displayUser = () => {
     if (loading) {
@@ -71,67 +70,68 @@ const BlogManager = () => {
         </div>
       );
     } else {
-      return userArray.map(({ _id, title,description,category,data }) => (
-        <tr key={_id}>
-
-          <td>{1}</td>
-          <td>{title}</td>
-          <td>{description}</td>
-          <td>{category}</td>
-          <td>{data}</td>
-          <td>
-            <Button
-              className="btn btn-primary"
-              onClick={(e) =>
-                updateUser({ _id, title,description,category,data })
-              }
+      return userArray.map(({ _id, title, description, category, data, image}) => (
+        <div className="col-md-4 mt-4">
+          <div className="card">
+            <div
+              className="bg-image hover-overlay ripple"
+              data-mdb-ripple-color="light"
             >
-              {" "}
-              <i class="fas fa-pen-nib"></i>
-            </Button>
-          </td>
-          <td>
-            <Button className="btn btn-danger" onClick={(e) => deleteUser(_id)}>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </Button>
-          </td>
-        </tr>
+              <img
+                src={url + "/" + image}
+                className="img-fluid"
+              />
+              <a href="#!">
+                <div
+                  className="mask"
+                  style={{backgroundColor: "rgba(251, 251, 251, 0.15)"}}></div>
+              </a>
+            </div>
+            {/* <img src= class="card-img-top" alt="" /> */}
+            <div class="card-body">
+              <h5 class="card-title">{title}</h5>
+              <h6 class="card-title">{category}</h6>
+              <p class="card-text">{description}</p>
+
+              <NavLink to="" class="btn btn-primary">
+                View
+              </NavLink>
+            </div>
+          </div>
+        </div>
+        //     {/* <Button
+        //       className="btn btn-primary"
+        //       onClick={(e) =>
+        //         updateUser({ _id, firstname, lastname, email, password })
+        //       }
+        //     >
+        //       {" "}
+        //       <i class="fas fa-pen-nib"></i>
+        //     </Button> */}
+        //   </td>
+        //   <td>
+        //     {/* <Button className="btn btn-danger" onClick={(e) => deleteUser(_id)}>
+        //       <i class="fas fa-trash"></i>{" "}
+        //     </Button> */}
+        //   </td>
+        // </tr>
       ));
     }
   };
   return (
     <div>
-      <h1 className="text-center">Blog Manager</h1>
-      <div className="row">
-        <div className="col-md">
-          <table className="table table-secondary table-striped">
-            <thead className="table-dark">
-              <tr>
-                <th>S No.</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Data</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>{displayUser()}</tbody>
-          </table>
+      <section>
+        <div>
+          <h3 className="text-center mt-4">Latest posts</h3>
         </div>
-        {showUpdateForm ? (
-          <div className="col-md">
-            {/* <UpdateUser
-              updateFormData={updateFormData}
-              setShowUpdateForm={setShowUpdateForm}
-              getDataFromBackend={getDataFromBackend}
-            /> */}
-          </div>
-        ) : (
-          " "
-        )}
-      </div>
-     
+      </section>
+      <section>
+        <div className="container">
+          {/* <img className="img-fluid" src={File} alt="" /> */}
+
+          <div className="row mt-3 mb-5">{displayUser()}</div>
+        </div>
+      </section>
     </div>
   );
 };

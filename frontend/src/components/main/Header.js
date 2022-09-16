@@ -34,10 +34,10 @@ const Header = () => {
     {/* <!-- Collapsible wrapper --> */}
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       {/* <!-- Navbar brand --> */}
-      <NavLink className="navbar-brand mt-2 mt-lg-0" to="#">
+      <NavLink className="navbar-brand mt-2 mt-lg-0 logo" to="#">
         <img
-          src="public/logo.jpg"
-          height="15"
+          src="logo.jpg"
+          height="50"
           alt="MDB Logo"
           loading="lazy"
         />
