@@ -18,11 +18,9 @@ import VideoManager from "./components/user/VideoManager";
 import UserManager from "./components/main/UserManager";
 import AddBlog from "./components/blog/AddBlog";
 import BlogManager from "./components/blog/BlogManager";
-<<<<<<< HEAD
 import ContactUs from "./components/main/ContactUs";
-=======
 import NotFound from "./components/main/NotFound";
->>>>>>> 247520ee180d9493f68893f07c1b859d5850e03a
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -36,11 +34,9 @@ function App() {
             <Route element={<Login />} path="login" />
             <Route element={<SignUp />} path="/" />
             <Route element={<UserManager />} path="usermanager" />
-<<<<<<< HEAD
             <Route element={<ContactUs />} path="contact" />
-=======
             <Route element={<NotFound/>} path="error"/>
->>>>>>> 247520ee180d9493f68893f07c1b859d5850e03a
+
           </Route>
 
           <Route element={<Admin />} path="admin">
