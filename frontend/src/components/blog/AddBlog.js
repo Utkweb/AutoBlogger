@@ -29,7 +29,7 @@ const AddBlog = () => {
   return (
     <div className="body">
       <div className="container mt-2 cont">
-        <h2 className="text-center mb-0.5em">Add Blogs</h2>
+        <h2 className="text-center mb-0.5em head">Add Blogs</h2>
         <p className="text-center">Please enter the details of blogs</p>
 
         <Formik
@@ -114,8 +114,8 @@ const AddBlog = () => {
                 {/* <!-- 2 column grid layout for inline styling --> */}
 
                 {/* <!-- Submit button --> */}
-                <Button type="submit" className="sign">
-                  SUBMIT
+                <Button type="submit" className="sign w-100">
+                  <span>&#8250;&#8250;&#8250; </span> Publish
                 </Button>
               </div>
             </form>

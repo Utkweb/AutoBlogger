@@ -36,7 +36,7 @@ const Header = () => {
       {/* <!-- Navbar brand --> */}
       <NavLink className="navbar-brand mt-2 mt-lg-0" to="#">
         <img
-          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          src="public/logo.jpg"
           height="15"
           alt="MDB Logo"
           loading="lazy"
@@ -45,7 +45,7 @@ const Header = () => {
       {/* <!-- Left links --> */}
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <NavLink className="nav-link" to="/main/usermanager">User Manager</NavLink>
+          <NavLink className="nav-link" to="/usermanager">User Manager</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/user/videomanager">Video Manager</NavLink>
@@ -62,12 +62,12 @@ const Header = () => {
     <div className="d-flex align-items-center">
       {/* <!-- Icon --> */}
       <div className="d-flex align-items-center">
-        <NavLink type="button" className="btn btn-link px-3 me-2" to="/main/login">
+        <NavLink type="button" className="btn btn-link px-3 me-2" to="/login">
           {/* <NavLink>Login</NavLink> */}
           Login
           
         </NavLink>
-        <NavLink type="button" className="btn btn-primary me-3" to="/main/signup">
+        <NavLink type="button" className="btn btn-primary me-3" to="/">
           Sign up for free
         </NavLink>
       </div>
@@ -103,7 +103,7 @@ const Header = () => {
           </li>
           {!loggedIn ? (
               <li className="nav-item">
-                <NavLink className="nav-link active text-white" to="/main/login">
+                <NavLink className="nav-link active text-white" to="/login">
                   Login
                 </NavLink>
               </li>
