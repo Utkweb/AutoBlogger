@@ -25,6 +25,7 @@ const VideoManager = () => {
     setLoading(false);
   };
 
+
   useEffect(() => {
     getDataFromBackend();
   }, []);
@@ -91,9 +92,15 @@ const VideoManager = () => {
             <div class="card-body">
               <h5 class="card-title">{title}</h5>
               <p class="card-text">{description}</p>
-              <NavLink to="" class="btn btn-primary">
-                View
-              </NavLink>
+              <button className="btn btn-primary">
+              View
+            </button>
+
+            &nbsp;&nbsp;&nbsp;
+              
+              <button className="btn btn-danger" onClick={(e) => deleteUser(_id)}>
+              Delete
+            </button>
             </div>
           </div>
         </div>
