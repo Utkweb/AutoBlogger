@@ -7,6 +7,7 @@ const myschema = new Schema({
     file:String,
     thumbnail:String,
     createdAt:Date,
+    transcription: Object,
     createdBy:String
 });
 

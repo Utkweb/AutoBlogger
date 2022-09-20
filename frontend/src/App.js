@@ -35,7 +35,6 @@ function App() {
             <Route element={<SignUp />} path="/" />
             <Route element={<UserManager />} path="usermanager" />
             <Route element={<ContactUs />} path="contact" />
-            <Route element={<NotFound/>} path="error"/>
 
           </Route>
 
@@ -55,6 +54,8 @@ function App() {
             <Route element={<AddBlog/>} path="addblog"/>
             <Route element={<BlogManager/>} path="blogmanager"/>
           </Route>
+          <Route element={<NotFound/>} path="*">
+
         </Routes>
       </BrowserRouter>
     </UserProvider>

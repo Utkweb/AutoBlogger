@@ -114,4 +114,8 @@ const BlogManager = () => {
   );
 };
 
+<<<<<<< HEAD
 export default BlogManager;
+=======
+export default BlogManager;
+>>>>>>> 3da450054d39acc7e7ecd89f09e05a71f7e02528
