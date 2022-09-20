@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import app_config from "../../config";
 import "./VideoManager.css";
+// import Bounce from 'react-reveal/Bounce';
 
 const VideoManager = () => {
   const url = app_config.backend_url;
@@ -127,8 +128,11 @@ const VideoManager = () => {
     <div>
       <section>
         <div className="text-center blogheader">
-          <h1 className="heading">My Video</h1>
-          {/* <p className=''>cmab mhjc gh kigiesiuvbu</p> */}
+        <h1>
+        
+          My Videos
+        
+      </h1>
         </div>
       </section>
       <section>

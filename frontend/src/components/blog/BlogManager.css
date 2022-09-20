@@ -1,0 +1,25 @@
+.t1{
+    border: 1px solid;
+    color: white;
+    background-color: rgb(76, 75, 75);
+    border-radius: 5px;
+    width: 35%;
+
+}
+.t1:hover{
+    color: white;
+    background: black;
+}
+.category{
+    color: white;
+}
+.category:hover{
+    color: white;
+}
+.author{
+    transition: transform .2s;
+}
+.author:hover{
+    text-decoration: underline; 
+    transform: scale(1.5);   
+}

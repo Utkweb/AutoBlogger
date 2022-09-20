@@ -51,7 +51,7 @@ const Header = () => {
           <NavLink className="nav-link" to="/user/videomanager">Video Manager</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="#">Projects</NavLink>
+          <NavLink className="nav-link" to="/blog/blogmanager">Blog Manager</NavLink>
         </li>
       </ul>
       {/* <!-- Left links --> */}

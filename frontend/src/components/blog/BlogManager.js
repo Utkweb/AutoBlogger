@@ -3,22 +3,23 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import app_config from "../../config";
+import "./BlogManager.css";
 
 
 const BlogManager = () => {
-
   const url = app_config.backend_url;
-  const [userArray, setUserArray] = useState([]);
-  const [loading, setLoading] = useState(false);
-  
-  const getDataFromBackend = async () => { 
+  const [blogList, setBlogList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    
-    const response = await fetch(url + "/blogs/getall");
-    
+  const getDataFromBackend = async () => {
+    const response = await fetch(url + "/blog/getall");
+
     console.log(response.status);
     const data = await response.json();
-  }
+    setBlogList(data);
+    setLoading(false);
+    console.log(data);
+  };
 
   useEffect(() => {
     getDataFromBackend();
@@ -30,7 +31,7 @@ const BlogManager = () => {
     const response = await fetch(url + "/blogs/delete/" + id, {
       method: "DELETE",
     });
-    
+
     if (response.status === 200) {
       Swal.fire({
         icon: "success",
@@ -38,9 +39,9 @@ const BlogManager = () => {
         text: "User deleted successfully",
       });
     }
-  }
+  };
 
-  const displayUser = () => {
+  const displayBlog = () => {
     if (loading) {
       return (
         <div>
@@ -63,15 +64,20 @@ const BlogManager = () => {
         </div>
       );
     } else {
-      return userArray.map(({ _id, title, description, category, data, image}) => (
-        <div className="col-md-4 mt-4">
+      return blogList.map(
+        ({ _id, title, description, category, data, image, createdAt,createdBy }) => (
+          <div className="col-md-4 mt-4">
           <div className="card">
             <div
               className="bg-image hover-overlay ripple"
               data-mdb-ripple-color="light"
             >
+              {/* <img
+                src={url + "/" + file}
+                className="img-fluid"
+              /> */}
               <img
-                src={url + "/" + image}
+                src="https://cdn.dribbble.com/users/1983106/screenshots/6241899/10_4x.jpg?compress=1&resize=400x300"
                 className="img-fluid"
               />
               <a href="#!">
@@ -82,17 +88,26 @@ const BlogManager = () => {
             </div>
             {/* <img src= class="card-img-top" alt="" /> */}
             <div class="card-body">
-              <h5 class="card-title">{title}</h5>
-              <h6 class="card-title">{category}</h6>
-              <p class="card-text">{description}</p>
+              <div className="t1 w-25 text-center mt-2">
+                <h6>
+              <NavLink className="category" to=""> {category} Category</NavLink>
+              </h6>
+              </div>
+              <div className=" text-muted mt-2">By &nbsp;
+              <NavLink className="text-muted author" to="">{createdBy}Author Name </NavLink>
+              
+              </div>
+              <h4 className="title mt-3">{title}Title </h4>
+              <div className="date">
+              <i class="fa-solid fa-calendar-days"></i>&nbsp;{(createdAt, 'yyyy/mm/dd')}
+              
 
-              <NavLink to="" class="btn btn-primary">
-                View
-              </NavLink>
+              </div>
             </div>
           </div>
-        </div>
-      ));
+          </div>
+        )
+      );
     }
   };
 
@@ -107,15 +122,11 @@ const BlogManager = () => {
         <div className="container">
           {/* <img className="img-fluid" src={File} alt="" /> */}
 
-          <div className="row mt-3 mb-5">{displayUser()}</div>
+          <div className="row mt-3 mb-5">{displayBlog()}</div>
         </div>
       </section>
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default BlogManager;
-=======
-export default BlogManager;
->>>>>>> 3da450054d39acc7e7ecd89f09e05a71f7e02528

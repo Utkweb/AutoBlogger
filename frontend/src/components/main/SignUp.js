@@ -34,7 +34,7 @@ const SignUp = () => {
         text: "User added successfully😁👍",
         icon: "success",
       });
-      navigate("/main/login");
+      navigate("/login");
     } else {
       console.log("Something went wrong");
       Swal.fire({

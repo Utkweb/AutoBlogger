@@ -54,7 +54,7 @@ function App() {
             <Route element={<AddBlog/>} path="addblog"/>
             <Route element={<BlogManager/>} path="blogmanager"/>
           </Route>
-          <Route element={<NotFound/>} path="*">
+          <Route element={<NotFound/>} path="*"/>
 
         </Routes>
       </BrowserRouter>

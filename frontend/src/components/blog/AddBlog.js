@@ -110,10 +110,6 @@ const AddBlog = () => {
                     </label>
                   </div>
                 </div>
-
-                {/* <!-- 2 column grid layout for inline styling --> */}
-
-                {/* <!-- Submit button --> */}
                 <Button variant="contained" type="submit" className="sign w-100">
                    Publish
                 </Button>
