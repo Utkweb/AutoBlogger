@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Main from "./components/main";
 import Admin from "./components/admin";
 import User from "./components/user";
@@ -20,17 +20,47 @@ import AddBlog from "./components/blog/AddBlog";
 import BlogManager from "./components/blog/BlogManager";
 import ContactUs from "./components/main/ContactUs";
 import NotFound from "./components/main/NotFound";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/system";
 
 
 function App() {
+  const [darkTheme, setDarkTheme] = useState(false);
+  const theme1 = createTheme({
+    palette: {
+      mode: "dark",
+      error: {
+        main: "#f44336",
+        contrastText: "#dea500",
+      },
+      background: {
+        paper: "#001e3c",
+      },
+      text: {
+        primary: "#dea500",
+      },
+    },
+  });
+
+  const theme2 = createTheme({
+    palette: {
+      mode: "light",
+      secondary: {
+        main: "#ff7b31",
+        dark: "#30dde1",
+      },
+    },
+  });
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
   return (
+    <div>
+    <ThemeProvider theme={darkTheme ? theme1 : theme2}>
     <UserProvider user={currentUser}>
       <BrowserRouter>
         <Routes>
-          <Route element={<Main />} path="/">
+        <Route element={<Main />} path="/">
             <Route element={<Login />} path="login" />
             <Route element={<SignUp />} path="/" />
             <Route element={<UserManager />} path="usermanager" />
@@ -59,6 +89,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </UserProvider>
+    </ThemeProvider>
+    </div>
   );
 }
 

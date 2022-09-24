@@ -1,9 +1,10 @@
+import { Switch } from "@mui/material";
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import './Header.css';
 import { UserContext } from "./UseContext";
 
-const Header = () => {
+const Header = ({darkTheme, setDarkTheme}) => {
   const navigate = useNavigate();
 
   const { loggedIn, setLoggedIn, currentUser } = useContext(UserContext);
@@ -62,6 +63,13 @@ const Header = () => {
     <div className="d-flex align-items-center">
       {/* <!-- Icon --> */}
       <div className="d-flex align-items-center">
+      
+              {/* <Switch
+                checked={darkTheme}
+                onChange={(e, v) => {
+                  setDarkTheme(v);
+                }}
+              ></Switch> */}
         <NavLink type="button" className="btn btn-link px-3 me-2" to="/login">
           {/* <NavLink>Login</NavLink> */}
           Login

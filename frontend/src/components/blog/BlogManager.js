@@ -78,7 +78,7 @@ const BlogManager = () => {
               /> */}
               <img
                 src="https://cdn.dribbble.com/users/1983106/screenshots/6241899/10_4x.jpg?compress=1&resize=400x300"
-                className="img-fluid"
+                className="img-fluid "
               />
               <a href="#!">
                 <div

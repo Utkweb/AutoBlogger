@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import app_config from "../../config";
 import "./Login.css";
@@ -53,7 +53,7 @@ const Login = () => {
                 alt="Phone image"
               />
             </div>
-            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 main">
               <Formik
                 initialValues={{ email: "", password: "" }}
                 onSubmit={userSubmit}
@@ -103,14 +103,14 @@ const Login = () => {
                             id="form1Example3"
                           />
                           <label
-                            className="form-check-label"
+                            className="form-check-label rem"
                             for="form1Example3"
                           >
                             {" "}
                             Remember me{" "}
                           </label>
                         </div>
-                        <a href="#!">Forgot password?</a>
+                        <NavLink className="secondary" to="#!">Forgot password?</NavLink>
                       </div>
 
                       {/* <!-- Submit button --> */}
@@ -123,35 +123,35 @@ const Login = () => {
                     </div>
 
                     <div className="divider d-flex align-items-center my-4">
-                      <p className="text-center fw-bold mx-3 mb-0 text-muted">
+                      <p className="text-center fw-bold mx-3 mb-0 text-muted" style={{color: "white"}}>
                         OR
                       </p>
                     </div>
                     <div className="text-center">
                       <button
                         type="button"
-                        className="btn btn-link btn-floating mx-1"
+                        className="btn btn-primary btn-floating mx-1"
                       >
                         <i className="fab fa-facebook-f"></i>
                       </button>
 
                       <button
                         type="button"
-                        className="btn btn-link btn-floating mx-1"
+                        className="btn btn-primary btn-floating mx-1"
                       >
                         <i className="fab fa-google"></i>
                       </button>
 
                       <button
                         type="button"
-                        className="btn btn-link btn-floating mx-1"
+                        className="btn btn-primary btn-floating mx-1"
                       >
                         <i className="fab fa-twitter"></i>
                       </button>
 
                       <button
                         type="button"
-                        className="btn btn-link btn-floating mx-1"
+                        className="btn btn-primary btn-floating mx-1"
                       >
                         <i className="fab fa-github"></i>
                       </button>
