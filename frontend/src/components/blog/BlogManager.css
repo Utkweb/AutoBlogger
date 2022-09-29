@@ -1,14 +1,14 @@
 .t1{
     border: 1px solid;
     color: white;
-    background-color: rgba(44, 47, 254, 0.782);
+    background-color: #598cca;
     border-radius: 5px;
     width: 35%;
 
 }
 .t1:hover{
     color: white;
-    background: rgb(0, 4, 255);
+    background: #163172;
 }
 .category{
     color: white;
