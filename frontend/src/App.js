@@ -56,7 +56,7 @@ function App() {
   );
   return (
     <div>
-    <ThemeProvider theme={darkTheme ? theme1 : theme2}>
+    {/* <ThemeProvider theme={darkTheme ? theme1 : theme2}> */}
     <UserProvider user={currentUser}>
       <BrowserRouter>
         <Routes>
@@ -89,7 +89,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </UserProvider>
-    </ThemeProvider>
+    {/* </ThemeProvider> */}
     </div>
   );
 }
